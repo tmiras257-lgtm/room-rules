@@ -1,0 +1,433 @@
+<title>Miras's Room Law</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700;900&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Noto+Serif+SC:wght@700;900&family=Noto+Sans+SC:wght@400;500;700&display=swap">
+<style>
+  :root{
+    --paper: #ECE8DF;
+    --paper-2: #E1DBCC;
+    --ink: #211E1A;
+    --muted: #6E6656;
+    --line: #B7AE9C;
+    --seal: #A82A20;
+    --seal-soft: rgba(168,42,32,.10);
+    --shadow: rgba(33,30,26,.14);
+
+    --font-display: 'Roboto Slab', Georgia, 'Times New Roman', serif;
+    --font-body: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+    --font-mono: 'IBM Plex Mono', 'SFMono-Regular', Consolas, monospace;
+    --font-display-zh: 'Noto Serif SC', 'Songti SC', serif;
+    --font-body-zh: 'Noto Sans SC', 'PingFang SC', sans-serif;
+  }
+
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper: #17140F;
+      --paper-2: #201B12;
+      --ink: #EDE7DA;
+      --muted: #A79C86;
+      --line: #3B3428;
+      --seal: #E2483A;
+      --seal-soft: rgba(226,72,58,.14);
+      --shadow: rgba(0,0,0,.5);
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper: #17140F;
+    --paper-2: #201B12;
+    --ink: #EDE7DA;
+    --muted: #A79C86;
+    --line: #3B3428;
+    --seal: #E2483A;
+    --seal-soft: rgba(226,72,58,.14);
+    --shadow: rgba(0,0,0,.5);
+  }
+
+  *{ box-sizing: border-box; }
+  body{
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-body);
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: clamp(1.25rem, 5vw, 4rem) clamp(1rem, 4vw, 2rem);
+  }
+
+  :root[data-lang="zh"] body{ font-family: var(--font-body-zh); }
+  :root[data-lang="zh"] .title,
+  :root[data-lang="zh"] .eyebrow,
+  :root[data-lang="zh"] .subtitle,
+  :root[data-lang="zh"] .footnote{ font-family: var(--font-display-zh); }
+
+  .wrap{ width: 100%; max-width: 42rem; }
+
+  .notice{
+    position: relative;
+    background: var(--paper);
+    border: 1px solid var(--ink);
+    outline: 4px solid var(--paper);
+    outline-offset: -9px;
+    box-shadow: 0 18px 40px -20px var(--shadow);
+    padding: clamp(1.5rem, 4vw, 2.75rem);
+    animation: rise .5s ease-out both;
+  }
+  @keyframes rise{
+    from{ opacity: 0; transform: translateY(10px); }
+    to{ opacity: 1; transform: translateY(0); }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .notice{ animation: none; }
+  }
+
+  .head-row{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .eyebrow{
+    font-family: var(--font-mono);
+    font-size: .68rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    max-width: 22rem;
+    line-height: 1.5;
+  }
+
+  .tabs{
+    display: flex;
+    gap: .25rem;
+    font-family: var(--font-mono), 'Noto Sans SC', sans-serif;
+    font-size: .72rem;
+    letter-spacing: .05em;
+  }
+  .tab{
+    appearance: none;
+    background: none;
+    border: 1px solid var(--line);
+    color: var(--muted);
+    padding: .3rem .6rem;
+    cursor: pointer;
+    text-transform: uppercase;
+  }
+  .tab + .tab{ border-left: none; }
+  .tab:hover{ color: var(--ink); }
+  .tab:focus-visible{ outline: 2px solid var(--seal); outline-offset: 2px; }
+  .tab[aria-selected="true"]{
+    background: var(--ink);
+    border-color: var(--ink);
+    color: var(--paper);
+  }
+
+  .title-block{ margin-top: clamp(1.5rem, 4vw, 2.25rem); position: relative; padding-right: 7rem; }
+  .title{
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: clamp(1.9rem, 5vw, 2.7rem);
+    letter-spacing: .01em;
+    text-transform: uppercase;
+    margin: 0 0 .6rem;
+    text-wrap: balance;
+    line-height: 1.05;
+  }
+  .rule-h{
+    border: none;
+    border-top: 1px solid var(--ink);
+    margin: 0 0 .75rem;
+  }
+  .subtitle{
+    font-size: .95rem;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  .seal{
+    position: absolute;
+    top: -.5rem;
+    right: -.25rem;
+    width: 6.5rem;
+    height: 6.5rem;
+    transform: rotate(-9deg);
+    opacity: .95;
+  }
+  .seal-svg{ width: 100%; height: 100%; overflow: visible; }
+  .seal-outer, .seal-inner{ fill: none; stroke: var(--seal); }
+  .seal-outer{ stroke-width: 2.5; }
+  .seal-inner{ stroke-width: 1.25; }
+  .seal-text{
+    font-family: var(--font-mono);
+    font-size: 8.6px;
+    letter-spacing: .07em;
+    fill: var(--seal);
+  }
+  .seal-num{
+    font-family: var(--font-mono);
+    font-weight: 500;
+    font-size: 19px;
+    fill: var(--seal);
+    font-variant-numeric: tabular-nums;
+  }
+  .seal-sub{
+    font-family: var(--font-mono);
+    font-size: 7px;
+    letter-spacing: .18em;
+    fill: var(--seal);
+  }
+
+  .rules{
+    list-style: none;
+    margin: clamp(1.75rem, 4vw, 2.25rem) 0 0;
+    padding: 0;
+    border-top: 1px solid var(--line);
+  }
+  .rules li{
+    display: grid;
+    grid-template-columns: 3rem 1fr;
+    gap: .25rem 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .rule-num{
+    font-family: var(--font-mono);
+    font-size: .8rem;
+    color: var(--seal);
+    font-variant-numeric: tabular-nums;
+    padding-top: .1rem;
+  }
+  .rule-body{ min-width: 0; }
+  .rule-lead{
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+  :root[data-lang="zh"] .rule-lead{ font-weight: 700; }
+  .rule-aside{
+    margin-top: .3rem;
+    font-size: .82rem;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  .footnote{
+    margin: 1.5rem 0 0;
+    font-size: .78rem;
+    color: var(--muted);
+    border-top: 1px dashed var(--line);
+    padding-top: 1rem;
+  }
+
+  .verify{
+    margin-top: clamp(2rem, 5vw, 2.75rem);
+    padding-top: clamp(1.5rem, 4vw, 2rem);
+    border-top: 1px solid var(--ink);
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+  }
+
+  .qr-box{
+    position: relative;
+    width: 6.5rem;
+    height: 6.5rem;
+    flex: none;
+    background: var(--paper-2);
+    border: 1px solid var(--ink);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: .4rem;
+  }
+  .qr-box::before, .qr-box::after,
+  .qr-box .corner-b::before, .qr-box .corner-b::after{ content: ''; position: absolute; width: .5rem; height: .5rem; }
+  .qr-box::before{ top: -1px; left: -1px; border-top: 2px solid var(--seal); border-left: 2px solid var(--seal); }
+  .qr-box::after{ bottom: -1px; right: -1px; border-bottom: 2px solid var(--seal); border-right: 2px solid var(--seal); }
+  .qr-box canvas, .qr-box img{ display: block; max-width: 100%; height: auto; }
+
+  .verify-meta{ min-width: 0; flex: 1 1 14rem; }
+  .verify-label{
+    font-family: var(--font-mono);
+    font-size: .68rem;
+    letter-spacing: .1em;
+    color: var(--muted);
+    margin: 0 0 .5rem;
+    text-transform: uppercase;
+  }
+
+  .link-chip{
+    appearance: none;
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    max-width: 100%;
+    background: var(--seal-soft);
+    border: 1px solid var(--seal);
+    color: var(--ink);
+    font-family: var(--font-mono);
+    font-size: .8rem;
+    padding: .5rem .7rem;
+    cursor: pointer;
+    text-align: left;
+  }
+  .link-chip:hover{ background: color-mix(in srgb, var(--seal) 18%, transparent); }
+  .link-chip:focus-visible{ outline: 2px solid var(--seal); outline-offset: 2px; }
+  .link-url{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    min-width: 0;
+  }
+  .link-chip svg{ flex: none; width: .95rem; height: .95rem; stroke: var(--seal); }
+  .link-chip .check{ display: none; }
+  .link-chip.copied .copy{ display: none; }
+  .link-chip.copied .check{ display: inline-flex; }
+
+  .i18n[hidden]{ display: none !important; }
+
+  @media (max-width: 30rem){
+    .title-block{ padding-right: 5.5rem; }
+    .seal{ width: 5.25rem; height: 5.25rem; top: -.25rem; }
+  }
+</style>
+
+<div class="wrap">
+  <div class="notice">
+    <div class="head-row">
+      <p class="eyebrow i18n" data-lang="ru">SCUT · Общежитие · Внутренний регламент</p>
+      <p class="eyebrow i18n" data-lang="en" hidden>SCUT · Dormitory · House Regulations</p>
+      <p class="eyebrow i18n" data-lang="zh" hidden>华南理工大学 · 宿舍 · 内部规定</p>
+
+      <div class="tabs" role="tablist" aria-label="Language">
+        <button class="tab" role="tab" data-set-lang="ru" aria-selected="true">RU</button>
+        <button class="tab" role="tab" data-set-lang="en" aria-selected="false">EN</button>
+        <button class="tab" role="tab" data-set-lang="zh" aria-selected="false">中文</button>
+      </div>
+    </div>
+
+    <div class="title-block">
+      <h1 class="title i18n" data-lang="ru">Правила комнаты</h1>
+      <h1 class="title i18n" data-lang="en" hidden>Room Rules</h1>
+      <h1 class="title i18n" data-lang="zh" hidden>宿舍规则</h1>
+      <hr class="rule-h">
+      <p class="subtitle i18n" data-lang="ru">Прочти перед тем как войти.</p>
+      <p class="subtitle i18n" data-lang="en" hidden>Read before you enter.</p>
+      <p class="subtitle i18n" data-lang="zh" hidden>进门前请阅读。</p>
+
+      <div class="seal" aria-hidden="true">
+        <svg class="seal-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <defs>
+            <path id="sealRing" d="M 100,100 m -78,0 a 78,78 0 1,1 156,0 a 78,78 0 1,1 -156,0"/>
+          </defs>
+          <circle class="seal-outer" cx="100" cy="100" r="94"/>
+          <circle class="seal-inner" cx="100" cy="100" r="64"/>
+          <text class="seal-text">
+            <textPath href="#sealRing" xlink:href="#sealRing" startOffset="2%">SCUT DORM COMMITTEE • SCUT DORM COMMITTEE •</textPath>
+          </text>
+          <text class="seal-num" x="100" y="97" text-anchor="middle">№ 05</text>
+          <text class="seal-sub" x="100" y="118" text-anchor="middle">ARTICLES</text>
+        </svg>
+      </div>
+    </div>
+
+    <ol class="rules i18n" data-lang="ru">
+      <li><span class="rule-num">01</span><div class="rule-body"><div class="rule-lead">Слушать Мираса.</div><div class="rule-aside">Слово хозяина комнаты — окончательное.</div></div></li>
+      <li><span class="rule-num">02</span><div class="rule-body"><div class="rule-lead">Перед входом снимать обувь или шлёпки.</div><div class="rule-aside">Полы моет не робот.</div></div></li>
+      <li><span class="rule-num">03</span><div class="rule-body"><div class="rule-lead">Вход запрещён людям вроде Абла (душнила).</div><div class="rule-aside">Без исключений и апелляций.</div></div></li>
+      <li><span class="rule-num">04</span><div class="rule-body"><div class="rule-lead">Чтобы попасть в компанию Мираса — пройти посвящение краба.</div><div class="rule-aside">Иначе путь заканчивается у порога.</div></div></li>
+      <li><span class="rule-num">05</span><div class="rule-body"><div class="rule-lead">Не называть Нурса «нурсиком».</div><div class="rule-aside">Тема закрыта.</div></div></li>
+    </ol>
+    <ol class="rules i18n" data-lang="en" hidden>
+      <li><span class="rule-num">01</span><div class="rule-body"><div class="rule-lead">Listen to Miras.</div><div class="rule-aside">His word is final here.</div></div></li>
+      <li><span class="rule-num">02</span><div class="rule-body"><div class="rule-lead">Take off your shoes or slides before entering.</div><div class="rule-aside">The floor doesn't clean itself.</div></div></li>
+      <li><span class="rule-num">03</span><div class="rule-body"><div class="rule-lead">Entry denied to people like Abl (certified buzzkill).</div><div class="rule-aside">No exceptions, no appeals.</div></div></li>
+      <li><span class="rule-num">04</span><div class="rule-body"><div class="rule-lead">To join Miras's crew, pass the Crab Initiation.</div><div class="rule-aside">Otherwise you stop at the door.</div></div></li>
+      <li><span class="rule-num">05</span><div class="rule-body"><div class="rule-lead">Never call Nurs "Nursik."</div><div class="rule-aside">Subject closed.</div></div></li>
+    </ol>
+    <ol class="rules i18n" data-lang="zh" hidden>
+      <li><span class="rule-num">01</span><div class="rule-body"><div class="rule-lead">听米拉斯的话。</div><div class="rule-aside">他说了算。</div></div></li>
+      <li><span class="rule-num">02</span><div class="rule-body"><div class="rule-lead">进门前脱鞋或拖鞋。</div><div class="rule-aside">地板不会自己变干净。</div></div></li>
+      <li><span class="rule-num">03</span><div class="rule-body"><div class="rule-lead">禁止像阿布尔那样的人进入（扫兴鬼）。</div><div class="rule-aside">没有例外，也不接受申诉。</div></div></li>
+      <li><span class="rule-num">04</span><div class="rule-body"><div class="rule-lead">想加入米拉斯的圈子，先通过"螃蟹"仪式。</div><div class="rule-aside">不然只能止步门口。</div></div></li>
+      <li><span class="rule-num">05</span><div class="rule-body"><div class="rule-lead">不准叫努尔斯"努尔斯克"。</div><div class="rule-aside">此事没得商量。</div></div></li>
+    </ol>
+
+    <p class="footnote i18n" data-lang="ru">Нарушение правил карается общественным осуждением.</p>
+    <p class="footnote i18n" data-lang="en" hidden>Violations are punishable by public shaming.</p>
+    <p class="footnote i18n" data-lang="zh" hidden>违反规定者将被公开嘲笑。</p>
+
+    <div class="verify">
+      <div class="qr-box"><div id="qr"></div></div>
+      <div class="verify-meta">
+        <p class="verify-label">Scan · Сканируй · 扫码</p>
+        <button class="link-chip" id="copyBtn" type="button">
+          <svg class="copy" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="1"/><path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1"/></svg>
+          <svg class="check" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+          <span class="link-url" id="linkUrl">loading…</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+  (function(){
+    var tabs = document.querySelectorAll('[data-set-lang]');
+    function setLang(lang){
+      document.querySelectorAll('.i18n').forEach(function(el){
+        el.hidden = el.dataset.lang !== lang;
+      });
+      tabs.forEach(function(t){
+        t.setAttribute('aria-selected', t.dataset.setLang === lang ? 'true' : 'false');
+      });
+      document.documentElement.setAttribute('data-lang', lang);
+      document.documentElement.lang = lang;
+    }
+    tabs.forEach(function(t){
+      t.addEventListener('click', function(){ setLang(t.dataset.setLang); });
+    });
+    setLang('ru');
+
+    var url = window.location.href;
+    document.getElementById('linkUrl').textContent = url;
+
+    function renderQr(){
+      var mount = document.getElementById('qr');
+      mount.innerHTML = '';
+      var styles = getComputedStyle(document.documentElement);
+      var ink = styles.getPropertyValue('--ink').trim() || '#211E1A';
+      var paper2 = styles.getPropertyValue('--paper-2').trim() || '#E1DBCC';
+      if (typeof QRCode !== 'undefined') {
+        new QRCode(mount, {
+          text: url,
+          width: 96,
+          height: 96,
+          colorDark: ink,
+          colorLight: paper2,
+          correctLevel: QRCode.CorrectLevel.M
+        });
+      }
+    }
+    renderQr();
+    if (window.matchMedia) {
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', renderQr);
+    }
+
+    var copyBtn = document.getElementById('copyBtn');
+    copyBtn.addEventListener('click', function(){
+      function done(){
+        copyBtn.classList.add('copied');
+        setTimeout(function(){ copyBtn.classList.remove('copied'); }, 1600);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(done, done);
+      } else {
+        done();
+      }
+    });
+  })();
+</script>
