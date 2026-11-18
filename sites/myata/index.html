@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Стоматология «Мята»</title>
+<meta name="description" content="Стоматология в Шымкенте: план лечения с ценой на первом визите, рассрочка 12 месяцев.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:title" content="Стоматология «Мята»">
+<meta property="og:description" content="Стоматология в Шымкенте: план лечения с ценой на первом визите, рассрочка 12 месяцев.">
+<meta property="og:url" content="https://tmiras257-lgtm.github.io/room-rules/sites/myata/">
+<meta property="og:image" content="https://tmiras257-lgtm.github.io/room-rules/sites/assets/og-myata.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0d7f66">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230d7f66'/%3E%3Ctext x='32' y='43' font-family='Arial' font-weight='700' font-size='34' text-anchor='middle' fill='%23ffffff'%3EМ%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Golos+Text:wght@400;500;700&display=swap">
+<style>
+/* Layout: calm clinical page. Price promise up front, service grid with "from" prices, trust facts, FAQ, short booking form. */
+:root{
+  --bg:#f4f9f7; --surface:#ffffff; --fg:#10302a; --muted:#4b6a63;
+  --accent:#0d7f66; --on-accent:#ffffff; --tint:#e2f2ec; --line:#d3e5df;
+  --display:"Unbounded","Arial Black",system-ui,sans-serif;
+  --body:"Golos Text",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){--bg:#0c1916;--surface:#12231f;--fg:#e2f2ed;--muted:#9bbcb3;--accent:#4fd1ae;--on-accent:#0c1916;--tint:#173029;--line:#22392f;color-scheme:dark}
+}
+:root[data-theme="dark"]{--bg:#0c1916;--surface:#12231f;--fg:#e2f2ed;--muted:#9bbcb3;--accent:#4fd1ae;--on-accent:#0c1916;--tint:#173029;--line:#22392f;color-scheme:dark}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0}
+img{max-width:100%}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.6}
+.wrap{max-width:1080px;margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+h1,h2,h3{font-family:var(--display);line-height:1.15;text-wrap:balance;font-weight:700}
+
+.top{padding-block:18px}
+.top .wrap{display:flex;justify-content:space-between;align-items:center;gap:12px 24px;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:10px;font:700 1.2rem var(--display);color:var(--fg);text-decoration:none}
+.logo svg{width:34px;height:34px}
+.leaf{fill:var(--accent)} .vein{stroke:var(--on-accent);stroke-width:2;fill:none}
+.top nav{display:flex;gap:20px;flex-wrap:wrap}
+.top nav a{color:var(--muted);text-decoration:none;font-weight:500}
+.top nav a:hover{color:var(--accent)}
+
+.hero{padding-block:32px 56px}
+.hero-card{background:var(--surface);border:1px solid var(--line);border-radius:28px;padding:clamp(24px,5vw,56px);display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:center}
+.hero-card>*{min-width:0}
+.tag{display:inline-block;background:var(--tint);color:var(--accent);font-weight:700;font-size:.82rem;padding:6px 12px;border-radius:999px}
+h1{font-size:clamp(1.9rem,4.4vw,3.1rem);margin:.5em 0 .4em}
+h1 span{color:var(--accent)}
+.lead{color:var(--muted);font-size:1.1rem;margin:0;max-width:32em}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:15px 24px;border-radius:14px;font:700 1rem/1 var(--body);text-decoration:none;border:2px solid var(--accent);cursor:pointer}
+.btn.primary{background:var(--accent);color:var(--on-accent)}
+.btn.ghost{background:transparent;color:var(--accent)}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.promise{background:var(--tint);border-radius:20px;padding:24px;display:grid;gap:14px}
+.promise h3{font-size:1rem;margin:0}
+.promise ol{margin:0;padding-left:1.2em;display:grid;gap:8px;color:var(--fg)}
+.promise li::marker{color:var(--accent);font-weight:700}
+
+section{padding-block:48px}
+h2{font-size:clamp(1.5rem,3.2vw,2.2rem);margin:0 0 .6em}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.svc{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:22px;display:flex;flex-direction:column;gap:8px}
+.svc h3{font-size:1.02rem;margin:0}
+.svc p{margin:0;color:var(--muted);font-size:.95rem;flex:1}
+.svc .price{font:700 1.2rem var(--display);color:var(--accent);font-variant-numeric:tabular-nums}
+.svc .price small{font:500 .85rem var(--body);color:var(--muted)}
+
+.trust{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;border-block:1px solid var(--line);padding-block:32px}
+.trust b{display:block;font:700 1.7rem var(--display);color:var(--accent);font-variant-numeric:tabular-nums}
+.trust span{color:var(--muted);font-size:.95rem}
+
+.two{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.two>*{min-width:0}
+details{border-bottom:1px solid var(--line);padding-block:14px}
+summary{cursor:pointer;font-weight:700;list-style:none;display:flex;justify-content:space-between;gap:12px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--accent);font:700 1.3rem/1 var(--display)}
+details[open] summary::after{content:"−"}
+details p{margin:.6em 0 0;color:var(--muted)}
+form{background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:24px;display:grid;gap:14px}
+.field{display:grid;gap:6px}
+label{font-weight:500;font-size:.92rem}
+input,select{font:inherit;color:var(--fg);background:var(--bg);border:1.5px solid var(--line);border-radius:12px;padding:12px 14px;width:100%;min-width:0}
+input:focus,select:focus{border-color:var(--accent);outline:none}
+.result{background:var(--tint);border-radius:12px;padding:14px 16px}
+.err{color:#c0392b;font-size:.88rem}
+.addr{color:var(--muted);font-size:.92rem;margin:0}
+footer{padding-block:24px;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem;margin-top:24px}
+@media(max-width:860px){.hero-card,.two{grid-template-columns:1fr}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.trust{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:540px){.grid{grid-template-columns:1fr}}
+
+.wa-fab{position:fixed;right:calc(16px + env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:20;display:none;align-items:center;gap:8px;padding:14px 18px;border-radius:999px;background:#1fa855;color:#fff;font:700 15px/1 system-ui,sans-serif;text-decoration:none;box-shadow:0 6px 20px rgba(0,0,0,.25)}
+.wa-fab svg{width:20px;height:20px;fill:#fff}
+@media(max-width:760px){.wa-fab{display:inline-flex}footer{padding-bottom:88px}}
+.back-link{color:inherit;font-weight:700}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#top">
+      <svg viewBox="0 0 34 34" aria-hidden="true"><path class="leaf" d="M6 28C6 14 15 5 30 4c0 15-9 24-24 24z"/><path class="vein" d="M8 26L24 10"/></svg>
+      Мята
+    </a>
+    <nav aria-label="Разделы"><a href="#services">Услуги</a><a href="#faq">Вопросы</a><a href="#book">Запись</a></nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-card">
+        <div>
+          <span class="tag">Стоматология · Шымкент</span>
+          <h1>Лечим без боли и называем <span>цену до начала</span></h1>
+          <p class="lead">На первом приёме делаем снимок, показываем его вам на экране и составляем план лечения с итоговой суммой. Сумма в плане не меняется.</p>
+          <div class="actions">
+            <a class="btn primary" href="#book">Записаться на консультацию</a>
+            <a class="btn ghost" href="#services">Цены</a>
+          </div>
+        </div>
+        <div class="promise">
+          <h3>Первый визит, около 40 минут</h3>
+          <ol>
+            <li>Осмотр и панорамный снимок прямо в клинике</li>
+            <li>Разбор снимка вместе с врачом</li>
+            <li>План лечения с ценой по каждому зубу</li>
+          </ol>
+          <p class="addr">Консультация бесплатная, снимок 3 000 ₸</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="wrap">
+      <h2>Услуги и цены</h2>
+      <div class="grid">
+        <article class="svc"><h3>Профгигиена</h3><p>Ультразвук, Air Flow, полировка и фторирование.</p><div class="price">15 000 ₸</div></article>
+        <article class="svc"><h3>Лечение кариеса</h3><p>Под анестезией, светоотверждаемая пломба.</p><div class="price"><small>от</small> 18 000 ₸</div></article>
+        <article class="svc"><h3>Лечение каналов</h3><p>Под микроскопом, с контрольным снимком.</p><div class="price"><small>от</small> 45 000 ₸</div></article>
+        <article class="svc"><h3>Имплант под ключ</h3><p>Имплант, абатмент и коронка из циркония.</p><div class="price"><small>от</small> 250 000 ₸</div></article>
+        <article class="svc"><h3>Отбеливание</h3><p>Кабинетное, за один визит, до 8 тонов светлее.</p><div class="price">60 000 ₸</div></article>
+        <article class="svc"><h3>Детский приём</h3><p>Адаптационный визит без лечения, мультики на потолке.</p><div class="price"><small>от</small> 10 000 ₸</div></article>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="trust">
+        <div><b>Класс B</b><span>автоклав для стерилизации инструментов</span></div>
+        <div><b>1 визит</b><span>снимок и план лечения без направлений</span></div>
+        <div><b>12 мес.</b><span>рассрочка без переплаты</span></div>
+        <div><b>3 года</b><span>гарантия на пломбы и коронки</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap two">
+      <div id="faq">
+        <h2>Частые вопросы</h2>
+        <details open><summary>Будет больно?</summary><p>Перед уколом наносим гель-анестетик, сам укол делаем компьютерным шприцем. Большинство пациентов его не замечают.</p></details>
+        <details><summary>Можно ли оплатить частями?</summary><p>Да. Лечение от 50 000 ₸ можно оформить в рассрочку на 3, 6 или 12 месяцев без переплаты.</p></details>
+        <details><summary>Что если план лечения изменится?</summary><p>Цену в подписанном плане мы не меняем. Если врач находит новую проблему, вы решаете, лечить её сейчас или позже.</p></details>
+        <details><summary>Принимаете детей?</summary><p>Да, с 3 лет. Первый визит знакомит ребёнка с кабинетом, лечение начинаем со второго.</p></details>
+      </div>
+      <div id="book">
+        <h2>Запись на консультацию</h2>
+        <form id="bookForm" novalidate>
+          <div class="field"><label for="name">Ваше имя</label><input id="name" autocomplete="name" value="Динара"></div>
+          <div class="field"><label for="tel">Телефон</label><input id="tel" type="tel" autocomplete="tel" placeholder="+7 7__ ___ __ __"></div>
+          <div class="field"><label for="reason">Что беспокоит</label>
+            <select id="reason"><option>Плановый осмотр</option><option>Болит зуб</option><option>Хочу имплант</option><option>Профгигиена</option><option>Ребёнок</option></select></div>
+          <span class="err" id="err" hidden>Укажите телефон: 11 цифр, начиная с +7.</span>
+          <button class="btn primary" type="submit">Записаться</button>
+          <div class="result" id="result" hidden aria-live="polite"></div>
+          <p class="addr">Шымкент, ул. Примерная, 7 · пн–сб 09:00–20:00 · +7 700 000 00 00</p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap"><a class="back-link" href="../">← Все работы</a> · Демо-проект для портфолио. Стоматология «Мята» вымышленная, адрес и телефон не настоящие.</div>
+</footer>
+<a class="wa-fab" href="https://wa.me/77000000000" target="_blank" rel="noopener" aria-label="Написать в WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.1.1.7-.1 1.3z"/></svg>WhatsApp</a>
+
+<script>
+(function(){
+  var f=document.getElementById('bookForm');
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    var tel=document.getElementById('tel').value.replace(/\D/g,'');
+    var err=document.getElementById('err'),res=document.getElementById('result');
+    if(tel.length!==11){err.hidden=false;res.hidden=true;document.getElementById('tel').focus();return}
+    err.hidden=true;
+    res.textContent=document.getElementById('name').value+', заявка «'+document.getElementById('reason').value+'» готова. Это демо: в рабочей версии администратор получает её в WhatsApp и перезванивает в течение 15 минут.';
+    res.hidden=false;
+  });
+})();
+</script>
+</body>
+</html>

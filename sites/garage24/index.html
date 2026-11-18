@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Автосервис «Гараж 24»</title>
+<meta name="description" content="Автосервис в Астане: цены до начала работ, зимний комплекс, онлайн-запись.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:title" content="Автосервис «Гараж 24»">
+<meta property="og:description" content="Автосервис в Астане: цены до начала работ, зимний комплекс, онлайн-запись.">
+<meta property="og:url" content="https://tmiras257-lgtm.github.io/room-rules/sites/garage24/">
+<meta property="og:image" content="https://tmiras257-lgtm.github.io/room-rules/sites/assets/og-garage24.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#ffc21a">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23ffc21a'/%3E%3Ctext x='32' y='43' font-family='Arial' font-weight='700' font-size='30' text-anchor='middle' fill='%23141516'%3E24%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Rubik:wght@400;500;700&display=swap">
+<style>
+/* Layout: workshop floor. One deliberate dark look with signal-yellow hazard stripes, a price board, a winter checklist and a booking form. */
+:root{
+  --bg:#141516; --surface:#1d1f21; --raised:#26292c; --fg:#eceae4; --muted:#a3a29c;
+  --accent:#ffc21a; --on-accent:#141516; --ok:#62d48a; --line:#2f3236;
+  --display:"Oswald","Arial Narrow",Impact,sans-serif;
+  --body:"Rubik",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0}
+img{max-width:100%}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.6}
+.wrap{max-width:1080px;margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.hazard{height:12px;background:repeating-linear-gradient(-45deg,var(--accent) 0 18px,var(--bg) 18px 36px)}
+
+.top{padding-block:18px;border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px 24px;flex-wrap:wrap}
+.logo{font:700 1.7rem/1 var(--display);letter-spacing:.02em;text-transform:uppercase;color:var(--fg);text-decoration:none}
+.logo span{color:var(--accent)}
+.status{display:inline-flex;align-items:center;gap:8px;font-size:.9rem;color:var(--muted)}
+.status::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 4px rgba(98,212,138,.18)}
+.phone{font:500 1.15rem var(--display);color:var(--fg);letter-spacing:.03em}
+
+h1,h2,h3{font-family:var(--display);text-transform:uppercase;letter-spacing:.01em;line-height:1.05;text-wrap:balance}
+.hero{padding-block:48px 56px}
+.hero .wrap{display:grid;grid-template-columns:1.4fr 1fr;gap:40px;align-items:end}
+.hero .wrap>*{min-width:0}
+.kicker{font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:500}
+h1{font-size:clamp(2.6rem,7vw,5rem);margin:.15em 0 .3em}
+h1 mark{background:var(--accent);color:var(--on-accent);padding:0 .12em}
+.lead{color:var(--muted);font-size:1.12rem;max-width:32em;margin:0}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:15px 26px;font:700 1.05rem/1 var(--display);text-transform:uppercase;letter-spacing:.06em;text-decoration:none;border:2px solid var(--accent);cursor:pointer;border-radius:4px}
+.btn.primary{background:var(--accent);color:var(--on-accent)}
+.btn.ghost{background:transparent;color:var(--accent)}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.gauge{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:24px}
+.gauge dl{margin:0;display:grid;gap:16px}
+.gauge div{display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid var(--line);padding-bottom:12px}
+.gauge div:last-child{border:0;padding:0}
+.gauge dt{color:var(--muted)}
+.gauge dd{margin:0;font:700 1.4rem var(--display);font-variant-numeric:tabular-nums}
+
+section{padding-block:56px}
+h2{font-size:clamp(1.9rem,4vw,2.8rem);margin:.1em 0 .5em}
+.board-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:6px}
+table{width:100%;border-collapse:collapse;min-width:520px;font-variant-numeric:tabular-nums}
+th,td{text-align:left;padding:14px 18px;border-bottom:1px solid var(--line)}
+th{font:500 .78rem var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);background:var(--surface)}
+td:last-child,th:last-child{text-align:right;white-space:nowrap}
+td:last-child{font:700 1.15rem var(--display);color:var(--accent)}
+tbody tr:hover{background:var(--surface)}
+.small{color:var(--muted);font-size:.9rem}
+
+.winter{background:var(--surface);border-block:1px solid var(--line)}
+.winter .wrap{display:grid;grid-template-columns:1fr 1.2fr;gap:40px;align-items:start}
+.winter .wrap>*{min-width:0}
+.temp{font:700 clamp(3.5rem,10vw,6rem)/1 var(--display);color:var(--accent);font-variant-numeric:tabular-nums}
+.check{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.check li{display:grid;grid-template-columns:28px 1fr auto;gap:12px;align-items:start;background:var(--raised);border-radius:6px;padding:14px 16px}
+.check li::before{content:"✓";display:grid;place-items:center;width:28px;height:28px;border-radius:4px;background:var(--accent);color:var(--on-accent);font-weight:700}
+.check b{display:block}
+.check span{color:var(--muted);font-size:.92rem}
+.check em{font-style:normal;color:var(--muted);font-size:.9rem;white-space:nowrap}
+.bundle{margin-top:18px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;border:2px dashed var(--accent);border-radius:6px;padding:16px 18px}
+.bundle strong{font:700 1.6rem var(--display);color:var(--accent)}
+
+.book .wrap{display:grid;grid-template-columns:1fr 1.3fr;gap:40px}
+.book .wrap>*{min-width:0}
+form{display:grid;grid-template-columns:1fr 1fr;gap:16px;background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:24px}
+.field{display:grid;gap:6px;min-width:0}
+.field.full{grid-column:1/-1}
+label{font-size:.85rem;color:var(--muted);letter-spacing:.04em}
+input,select{font:inherit;color:var(--fg);background:var(--bg);border:1.5px solid var(--line);border-radius:4px;padding:12px 14px;width:100%;min-width:0}
+input:focus,select:focus{border-color:var(--accent);outline:none}
+form .btn{grid-column:1/-1}
+.result{grid-column:1/-1;background:var(--raised);border-left:4px solid var(--ok);padding:14px 16px;border-radius:4px}
+.err{color:#ff8a7a;font-size:.85rem}
+.info p{margin:.2em 0;color:var(--muted)}
+.info strong{color:var(--fg)}
+footer{padding-block:24px;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
+@media(max-width:800px){.hero .wrap,.winter .wrap,.book .wrap{grid-template-columns:1fr}}
+@media(max-width:520px){form{grid-template-columns:1fr}}
+
+.wa-fab{position:fixed;right:calc(16px + env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:20;display:none;align-items:center;gap:8px;padding:14px 18px;border-radius:999px;background:#1fa855;color:#fff;font:700 15px/1 system-ui,sans-serif;text-decoration:none;box-shadow:0 6px 20px rgba(0,0,0,.25)}
+.wa-fab svg{width:20px;height:20px;fill:#fff}
+@media(max-width:760px){.wa-fab{display:inline-flex}footer{padding-bottom:88px}}
+.back-link{color:inherit;font-weight:700}
+</style>
+</head>
+<body>
+
+<div class="hazard" role="presentation"></div>
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#top">Гараж <span>24</span></a>
+    <span class="status">Открыто сегодня до 22:00</span>
+    <span class="phone">+7 700 000 00 00</span>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <div class="kicker">Автосервис · Астана, левый берег</div>
+        <h1>Ремонт <mark>без сюрпризов</mark> в чеке</h1>
+        <p class="lead">Называем цену до начала работ. Если в процессе найдём что-то ещё, сначала звоним вам и только потом берёмся за ключ. Старые запчасти отдаём в пакете.</p>
+        <div class="actions">
+          <a class="btn primary" href="#book">Записаться онлайн</a>
+          <a class="btn ghost" href="#prices">Цены</a>
+        </div>
+      </div>
+      <div class="gauge">
+        <dl>
+          <div><dt>Постов в боксе</dt><dd>6</dd></div>
+          <div><dt>Диагностика</dt><dd>5 000 ₸</dd></div>
+          <div><dt>Гарантия на работы</dt><dd>6 мес.</dd></div>
+          <div><dt>Ждать в тёплой зоне</dt><dd>кофе бесплатно</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="winter">
+    <div class="wrap">
+      <div>
+        <div class="kicker">Сезон: ноябрь – декабрь</div>
+        <div class="temp">−35 °C</div>
+        <h2>Подготовьте машину до первых морозов</h2>
+        <p class="small">Зимой в Астане чаще всего ломаются аккумулятор и печка. Проверка занимает около 40 минут.</p>
+      </div>
+      <div>
+        <ul class="check">
+          <li><div><b>Аккумулятор</b><span>Нагрузочный тест, чистка клемм</span></div><em>10 мин</em></li>
+          <li><div><b>Антифриз</b><span>Замер температуры замерзания, доливка до −40 °C</span></div><em>10 мин</em></li>
+          <li><div><b>Свечи и стартер</b><span>Проверка пусковых токов</span></div><em>10 мин</em></li>
+          <li><div><b>Шины</b><span>Переобувка на зимние, балансировка</span></div><em>40 мин</em></li>
+        </ul>
+        <div class="bundle"><span>Комплекс «Зима» со скидкой 20%</span><strong>15 000 ₸</strong></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="prices">
+    <div class="wrap">
+      <div class="kicker">Прайс</div>
+      <h2>Цены на работы</h2>
+      <div class="board-wrap">
+        <table>
+          <thead><tr><th>Услуга</th><th>Время</th><th>Цена</th></tr></thead>
+          <tbody>
+            <tr><td>Компьютерная диагностика</td><td>30 мин</td><td>5 000 ₸</td></tr>
+            <tr><td>Замена масла и фильтра (работа)</td><td>30 мин</td><td>3 000 ₸</td></tr>
+            <tr><td>Шиномонтаж R13–R16, комплект</td><td>40 мин</td><td>8 000 ₸</td></tr>
+            <tr><td>Шиномонтаж R17–R20, комплект</td><td>50 мин</td><td>12 000 ₸</td></tr>
+            <tr><td>Развал-схождение</td><td>40 мин</td><td>7 000 ₸</td></tr>
+            <tr><td>Замена тормозных колодок, ось</td><td>45 мин</td><td>6 000 ₸</td></tr>
+            <tr><td>Заправка кондиционера</td><td>60 мин</td><td>9 000 ₸</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="small">Цены указаны за работу. Запчасти можно привезти свои или заказать у нас.</p>
+    </div>
+  </section>
+
+  <section class="book" id="book">
+    <div class="wrap">
+      <div class="info">
+        <div class="kicker">Запись</div>
+        <h2>Выберите время, мы перезвоним</h2>
+        <p><strong>Адрес:</strong> Астана, ул. Примерная, 24</p>
+        <p><strong>Часы:</strong> ежедневно 08:00–22:00</p>
+        <p><strong>Телефон и WhatsApp:</strong> +7 700 000 00 00</p>
+      </div>
+      <form id="bookForm" novalidate>
+        <div class="field"><label for="name">Имя</label><input id="name" autocomplete="name" value="Ерлан"></div>
+        <div class="field"><label for="tel">Телефон</label><input id="tel" type="tel" autocomplete="tel" placeholder="+7 7__ ___ __ __"></div>
+        <div class="field"><label for="car">Марка и модель</label><input id="car" value="Toyota Camry 2018"></div>
+        <div class="field"><label for="service">Услуга</label>
+          <select id="service">
+            <option>Комплекс «Зима»</option><option>Компьютерная диагностика</option><option>Замена масла</option>
+            <option>Шиномонтаж</option><option>Развал-схождение</option><option>Тормозные колодки</option><option>Другое</option>
+          </select></div>
+        <div class="field full"><label for="date">Удобная дата</label><input id="date" type="date"></div>
+        <span class="err field full" id="err" hidden>Укажите телефон: 11 цифр, начиная с +7.</span>
+        <button class="btn primary" type="submit">Записаться</button>
+        <div class="result" id="result" hidden aria-live="polite"></div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap"><a class="back-link" href="../">← Все работы</a> · Демо-проект для портфолио. Автосервис «Гараж 24» вымышленный, адрес и телефон не настоящие.</div>
+</footer>
+<a class="wa-fab" href="https://wa.me/77000000000" target="_blank" rel="noopener" aria-label="Написать в WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.1.1.7-.1 1.3z"/></svg>WhatsApp</a>
+
+<script>
+(function(){
+  var f=document.getElementById('bookForm'), d=document.getElementById('date');
+  var t=new Date(); t.setDate(t.getDate()+1); d.value=t.toISOString().slice(0,10); d.min=new Date().toISOString().slice(0,10);
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    var tel=document.getElementById('tel').value.replace(/\D/g,'');
+    var err=document.getElementById('err'), res=document.getElementById('result');
+    if(tel.length!==11){err.hidden=false;res.hidden=true;document.getElementById('tel').focus();return}
+    err.hidden=true;
+    var dt=new Date(d.value+'T00:00').toLocaleDateString('ru-RU',{day:'numeric',month:'long'});
+    res.textContent='Заявка готова: '+document.getElementById('name').value+', '+document.getElementById('car').value+', «'+document.getElementById('service').value+'», '+dt+'. Это демо: в рабочей версии заявка сразу приходит владельцу в WhatsApp или Telegram.';
+    res.hidden=false;
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Мастерская тортов «Изюм»</title>
+<meta name="description" content="Торты на заказ в Алматы от 8 500 ₸ за кг. Калькулятор стоимости и заказ в WhatsApp.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:title" content="Мастерская тортов «Изюм»">
+<meta property="og:description" content="Торты на заказ в Алматы от 8 500 ₸ за кг. Калькулятор стоимости и заказ в WhatsApp.">
+<meta property="og:url" content="https://tmiras257-lgtm.github.io/room-rules/sites/izum/">
+<meta property="og:image" content="https://tmiras257-lgtm.github.io/room-rules/sites/assets/og-izum.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#a1235a">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23a1235a'/%3E%3Ctext x='32' y='43' font-family='Arial' font-weight='700' font-size='34' text-anchor='middle' fill='%23ffffff'%3EИ%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,500&family=Manrope:wght@400;500;700&display=swap">
+<style>
+/* Layout: a confectioner's order card. Hero with a drawn cake, the price list as the centrepiece, then a live cost calculator. */
+:root{
+  --bg:#fbf5f6; --surface:#ffffff; --fg:#2a1621; --muted:#6e5763;
+  --accent:#a1235a; --leaf:#4f7d31; --line:#ecdbe2; --chip:#f6e6ec;
+  --display:"Playfair Display",Georgia,"Times New Roman",serif;
+  --body:"Manrope",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){--bg:#1b1117;--surface:#261920;--fg:#f7e9ef;--muted:#c4a9b7;--accent:#f08bb4;--leaf:#a8d384;--line:#3e2a35;--chip:#33222b;color-scheme:dark}
+}
+:root[data-theme="dark"]{--bg:#1b1117;--surface:#261920;--fg:#f7e9ef;--muted:#c4a9b7;--accent:#f08bb4;--leaf:#a8d384;--line:#3e2a35;--chip:#33222b;color-scheme:dark}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0}
+img{max-width:100%}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.6}
+.wrap{max-width:1040px;margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+a{color:var(--accent)}
+:focus-visible{outline:3px solid var(--leaf);outline-offset:2px}
+
+.top{padding-block:20px;border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;justify-content:space-between;align-items:center;gap:12px 24px;flex-wrap:wrap}
+.logo{font-family:var(--display);font-size:1.6rem;font-weight:700;color:var(--fg);text-decoration:none}
+.logo i{color:var(--accent);font-weight:500}
+.top nav{display:flex;gap:20px;flex-wrap:wrap}
+.top nav a{color:var(--muted);text-decoration:none;font-weight:500}
+.top nav a:hover{color:var(--accent)}
+@media(max-width:480px){.top nav{gap:14px;font-size:.9rem}}
+
+.hero{padding-block:40px 56px}
+.hero .wrap{display:grid;grid-template-columns:1.15fr 1fr;gap:40px;align-items:center}
+.hero .wrap>*{min-width:0}
+.eyebrow{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--leaf);font-weight:700}
+h1,h2{font-family:var(--display);text-wrap:balance;line-height:1.1}
+h1{font-size:clamp(2.2rem,5.2vw,3.7rem);margin:.25em 0 .35em}
+h1 em{color:var(--accent);font-weight:500}
+h2{font-size:clamp(1.7rem,3.4vw,2.4rem);margin:0 0 .4em}
+.lead{color:var(--muted);font-size:1.12rem;max-width:34em;margin:0}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 24px;border-radius:999px;font:700 1rem/1 var(--body);text-decoration:none;border:2px solid var(--accent);cursor:pointer}
+.btn.primary{background:var(--accent);color:var(--bg)}
+.btn.ghost{background:transparent;color:var(--accent)}
+.btn:hover{filter:brightness(1.08)}
+.facts{display:flex;gap:16px 32px;flex-wrap:wrap;margin-top:36px;color:var(--muted);font-size:.92rem}
+.facts b{display:block;font-family:var(--display);font-size:1.55rem;color:var(--fg)}
+.cake svg{width:100%;max-width:420px;height:auto;display:block;margin-inline:auto}
+.s-plate{fill:var(--line)} .s-tier{fill:var(--surface);stroke:var(--line);stroke-width:2}
+.s-tier.alt{fill:var(--chip)} .s-cream{fill:var(--accent);opacity:.88}
+.s-berry{fill:var(--accent)} .s-leaf{fill:var(--leaf)} .s-candle{fill:var(--leaf)} .s-flame{fill:#f2b53a}
+
+section{padding-block:56px}
+.band{background:var(--surface);border-block:1px solid var(--line)}
+.menu{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 48px;margin-top:28px}
+@media(max-width:760px){.hero .wrap,.menu{grid-template-columns:1fr}}
+.item{padding-block:16px;border-bottom:1px dashed var(--line)}
+.item .row{display:flex;align-items:baseline;gap:10px}
+.item h3{font-family:var(--display);font-size:1.25rem;margin:0;font-weight:600}
+.item .dots{flex:1;border-bottom:2px dotted var(--line);transform:translateY(-4px);min-width:12px}
+.item .price{font-weight:700;white-space:nowrap;font-variant-numeric:tabular-nums}
+.item p{margin:.3em 0 0;color:var(--muted);font-size:.95rem}
+.note{color:var(--muted);font-size:.92rem;margin-top:20px}
+
+.calc{display:grid;grid-template-columns:1.3fr 1fr;gap:32px;margin-top:28px;align-items:start}
+.calc>*{min-width:0}
+@media(max-width:760px){.calc{grid-template-columns:1fr}}
+fieldset{border:0;padding:0;margin:0 0 24px}
+legend{font-weight:700;margin-bottom:10px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips label{position:relative}
+.chips input{position:absolute;opacity:0;inset:0}
+.chips span{display:inline-block;padding:9px 16px;border-radius:999px;background:var(--chip);border:1.5px solid var(--line);cursor:pointer;font-weight:500}
+.chips input:checked+span{background:var(--accent);color:var(--bg);border-color:var(--accent)}
+.chips input:focus-visible+span{outline:3px solid var(--leaf);outline-offset:2px}
+.range-row{display:flex;align-items:center;gap:16px}
+input[type=range]{flex:1;accent-color:var(--accent);min-width:0}
+.kg{font-weight:700;font-variant-numeric:tabular-nums;min-width:4.5em;text-align:right}
+.receipt{background:var(--bg);border:1.5px solid var(--line);border-radius:18px;padding:24px}
+.receipt dl{display:grid;grid-template-columns:1fr auto;gap:8px 16px;margin:0;font-variant-numeric:tabular-nums}
+.receipt dt{color:var(--muted)} .receipt dd{margin:0;text-align:right;font-weight:500}
+.total{display:flex;justify-content:space-between;align-items:baseline;border-top:2px dashed var(--line);margin-top:16px;padding-top:16px;gap:12px}
+.total output{font-family:var(--display);font-size:2rem;font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums}
+.receipt .btn{width:100%;margin-top:18px}
+
+.steps{list-style:none;padding:0;margin:28px 0 0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;counter-reset:s}
+@media(max-width:760px){.steps{grid-template-columns:1fr}}
+.steps li{counter-increment:s}
+.steps li::before{content:counter(s);display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--chip);color:var(--accent);font:700 1.2rem var(--display);margin-bottom:12px}
+.steps h3{margin:0 0 .3em;font-size:1.1rem}
+.steps p{margin:0;color:var(--muted)}
+
+.contact .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:center}
+.contact p{margin:.2em 0;color:var(--muted)}
+.contact strong{color:var(--fg)}
+footer{padding-block:24px;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
+@media (prefers-reduced-motion:no-preference){.s-flame{transform-origin:200px 40px;animation:fl 1.6s ease-in-out infinite alternate}@keyframes fl{to{transform:scale(.85,1.1)}}}
+
+.wa-fab{position:fixed;right:calc(16px + env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:20;display:none;align-items:center;gap:8px;padding:14px 18px;border-radius:999px;background:#1fa855;color:#fff;font:700 15px/1 system-ui,sans-serif;text-decoration:none;box-shadow:0 6px 20px rgba(0,0,0,.25)}
+.wa-fab svg{width:20px;height:20px;fill:#fff}
+@media(max-width:760px){.wa-fab{display:inline-flex}footer{padding-bottom:88px}}
+.back-link{color:inherit;font-weight:700}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#top">Изюм <i>торты</i></a>
+    <nav aria-label="Разделы">
+      <a href="#menu">Начинки</a><a href="#calc">Рассчитать</a><a href="#how">Как заказать</a><a href="#contacts">Контакты</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <div class="eyebrow">Домашняя кондитерская · Алматы</div>
+        <h1>Торты на заказ, которые <em>съедают до крошки</em></h1>
+        <p class="lead">Печём из сливочного масла и натуральных сливок, без маргарина и консервантов. Эскиз согласуем с вами, торт будет готов через 2 дня.</p>
+        <div class="actions">
+          <a class="btn primary" href="https://wa.me/77000000000" target="_blank" rel="noopener">Заказать в WhatsApp</a>
+          <a class="btn ghost" href="#calc">Рассчитать стоимость</a>
+        </div>
+        <div class="facts">
+          <div><b>от 8 500 ₸</b>за килограмм</div>
+          <div><b>2 дня</b>от заявки до торта</div>
+          <div><b>1 кг</b>на 6–8 гостей</div>
+        </div>
+      </div>
+      <div class="cake" aria-hidden="false">
+        <svg viewBox="0 0 400 360" role="img" aria-label="Иллюстрация: трёхъярусный торт с ягодами и свечой">
+          <ellipse class="s-plate" cx="200" cy="322" rx="172" ry="22"/>
+          <rect class="s-tier" x="70" y="222" width="260" height="96" rx="14"/>
+          <path class="s-cream" d="M84 222h232a14 14 0 0 1 14 14v6q-13 18-26 0q-13 18-26 0q-13 18-26 0q-13 18-26 0q-13 18-26 0q-13 18-26 0q-13 18-26 0q-13 18-26 0q-13 18-26 0q-13 18-26 0v-6a14 14 0 0 1 14-14z"/>
+          <rect class="s-tier alt" x="105" y="146" width="190" height="80" rx="12"/>
+          <path class="s-cream" d="M117 146h166a12 12 0 0 1 12 12v4q-12.7 16-25.3 0q-12.7 16-25.3 0q-12.7 16-25.3 0q-12.7 16-25.3 0q-12.7 16-25.3 0q-12.7 16-25.3 0q-12.7 16-25.3 0q-12.7 16-25.3 0v-4a12 12 0 0 1 12-12z"/>
+          <rect class="s-tier" x="140" y="80" width="120" height="70" rx="10"/>
+          <path class="s-cream" d="M150 80h100a10 10 0 0 1 10 10v2q-12 14-24 0q-12 14-24 0q-12 14-24 0q-12 14-24 0q-12 14-24 0v-2a10 10 0 0 1 10-10z"/>
+          <rect class="s-candle" x="195" y="46" width="10" height="34" rx="3"/>
+          <path class="s-flame" d="M200 22c7 9 9 15 0 24c-9-9-7-15 0-24z"/>
+          <circle class="s-berry" cx="158" cy="76" r="9"/><circle class="s-berry" cx="244" cy="76" r="9"/>
+          <circle class="s-berry" cx="122" cy="142" r="8"/><circle class="s-berry" cx="278" cy="142" r="8"/>
+          <circle class="s-berry" cx="88" cy="218" r="8"/><circle class="s-berry" cx="312" cy="218" r="8"/>
+          <path class="s-leaf" d="M166 70c8-10 18-10 22-8c-6 8-14 11-22 8z"/>
+          <path class="s-leaf" d="M234 70c-8-10-18-10-22-8c6 8 14 11 22 8z"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="menu">
+    <div class="wrap">
+      <div class="eyebrow">Меню</div>
+      <h2>Начинки и цены за килограмм</h2>
+      <div class="menu">
+        <div class="item"><div class="row"><h3>Медовик</h3><span class="dots"></span><span class="price">8 500 ₸</span></div><p>Тонкие медовые коржи, сметанный крем. Классика, которую любят все гости.</p></div>
+        <div class="item"><div class="row"><h3>Красный бархат</h3><span class="dots"></span><span class="price">10 500 ₸</span></div><p>Бисквит на пахте, крем-чиз на сливочном сыре.</p></div>
+        <div class="item"><div class="row"><h3>Шоколадный трюфель</h3><span class="dots"></span><span class="price">11 000 ₸</span></div><p>Влажный шоколадный бисквит, ганаш на бельгийском шоколаде 54%.</p></div>
+        <div class="item"><div class="row"><h3>Фисташка и малина</h3><span class="dots"></span><span class="price">12 500 ₸</span></div><p>Фисташковый бисквит, малиновое конфи, мусс на белом шоколаде.</p></div>
+        <div class="item"><div class="row"><h3>Сникерс</h3><span class="dots"></span><span class="price">10 000 ₸</span></div><p>Шоколадный бисквит, солёная карамель, жареный арахис.</p></div>
+        <div class="item"><div class="row"><h3>Бенто-торт</h3><span class="dots"></span><span class="price">6 000 ₸</span></div><p>Маленький торт на 2–3 человек, 450 г, надпись в подарок.</p></div>
+      </div>
+      <p class="note">Минимальный вес торта 1,5 кг. Бенто-торт продаётся поштучно.</p>
+    </div>
+  </section>
+
+  <section id="calc">
+    <div class="wrap">
+      <div class="eyebrow">Калькулятор</div>
+      <h2>Сколько будет стоить ваш торт</h2>
+      <form class="calc" id="calcForm" novalidate>
+        <div>
+          <fieldset>
+            <legend>Начинка</legend>
+            <div class="chips">
+              <label><input type="radio" name="fill" id="f1" value="8500" checked><span>Медовик</span></label>
+              <label><input type="radio" name="fill" id="f2" value="10500"><span>Красный бархат</span></label>
+              <label><input type="radio" name="fill" id="f3" value="11000"><span>Шоколадный трюфель</span></label>
+              <label><input type="radio" name="fill" id="f4" value="12500"><span>Фисташка и малина</span></label>
+              <label><input type="radio" name="fill" id="f5" value="10000"><span>Сникерс</span></label>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend><label for="weight">Вес торта</label></legend>
+            <div class="range-row">
+              <input type="range" id="weight" min="1.5" max="6" step="0.5" value="2">
+              <span class="kg" id="kgOut">2 кг</span>
+            </div>
+            <p class="note" id="guests">Хватит на 12–16 гостей</p>
+          </fieldset>
+          <fieldset>
+            <legend>Декор</legend>
+            <div class="chips">
+              <label><input type="checkbox" id="d1" value="1000" data-name="Надпись"><span>Надпись · 1 000 ₸</span></label>
+              <label><input type="checkbox" id="d2" value="3500" data-name="Свежие ягоды"><span>Свежие ягоды · 3 500 ₸</span></label>
+              <label><input type="checkbox" id="d3" value="6000" data-name="Фигурки из мастики"><span>Фигурки · 6 000 ₸</span></label>
+              <label><input type="checkbox" id="d4" value="2000" data-name="Доставка по Алматы"><span>Доставка · 2 000 ₸</span></label>
+            </div>
+          </fieldset>
+        </div>
+        <div class="receipt" aria-live="polite">
+          <dl id="lines"></dl>
+          <div class="total"><span>Итого</span><output id="total">0 ₸</output></div>
+          <p class="note" id="prepay"></p>
+          <a class="btn primary" href="https://wa.me/77000000000" target="_blank" rel="noopener">Отправить заказ в WhatsApp</a>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <section class="band" id="how">
+    <div class="wrap">
+      <div class="eyebrow">Как заказать</div>
+      <h2>Три шага до вашего торта</h2>
+      <ol class="steps">
+        <li><h3>Заявка</h3><p>Пишете в WhatsApp дату, вес и начинку. Можно прислать фото-референс.</p></li>
+        <li><h3>Эскиз и предоплата</h3><p>Рисуем эскиз, согласуем детали. Предоплата 50% закрепляет дату.</p></li>
+        <li><h3>Готовый торт</h3><p>Самовывоз в Самале-2 или доставка по городу в термосумке.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="contact" id="contacts">
+    <div class="wrap">
+      <div>
+        <h2>Принимаем заказы ежедневно</h2>
+        <p><strong>WhatsApp:</strong> +7 700 000 00 00</p>
+        <p><strong>Часы:</strong> 09:00–20:00, заказы на выходные до четверга</p>
+        <p><strong>Самовывоз:</strong> Алматы, мкр. Самал-2</p>
+      </div>
+      <a class="btn primary" href="https://wa.me/77000000000" target="_blank" rel="noopener">Написать в WhatsApp</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap"><a class="back-link" href="../">← Все работы</a> · Демо-проект для портфолио. Кондитерская «Изюм» вымышленная, контакты не настоящие.</div>
+</footer>
+<a class="wa-fab" href="https://wa.me/77000000000" target="_blank" rel="noopener" aria-label="Написать в WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.1.1.7-.1 1.3z"/></svg>WhatsApp</a>
+
+<script>
+(function(){
+  var fmt=function(n){return Math.round(n).toLocaleString('ru-RU').replace(/ /g,' ')+' ₸'};
+  var form=document.getElementById('calcForm'), w=document.getElementById('weight');
+  function kgText(v){return (v%1?String(v).replace('.',','):v)+' кг'}
+  function render(){
+    var fillEl=form.querySelector('input[name=fill]:checked');
+    var perKg=+fillEl.value, kg=+w.value, name=fillEl.nextElementSibling.textContent;
+    document.getElementById('kgOut').textContent=kgText(kg);
+    document.getElementById('guests').textContent='Хватит на '+Math.round(kg*6)+'–'+Math.round(kg*8)+' гостей';
+    var rows=[[name+', '+kgText(kg),perKg*kg]];
+    form.querySelectorAll('input[type=checkbox]:checked').forEach(function(c){rows.push([c.dataset.name,+c.value])});
+    var dl=document.getElementById('lines'); dl.innerHTML='';
+    var sum=0;
+    rows.forEach(function(r){sum+=r[1];var dt=document.createElement('dt');dt.textContent=r[0];var dd=document.createElement('dd');dd.textContent=fmt(r[1]);dl.append(dt,dd)});
+    document.getElementById('total').textContent=fmt(sum);
+    document.getElementById('prepay').textContent='Предоплата 50%: '+fmt(sum/2);
+  }
+  form.addEventListener('input',render);
+  form.addEventListener('submit',function(e){e.preventDefault()});
+  render();
+})();
+</script>
+</body>
+</html>
